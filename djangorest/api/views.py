@@ -12,3 +12,10 @@ class CreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         """Save the post data when creating a new shoppinglist."""
         serializer.save()
+
+
+class DetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """This class handles the http GET, PUT and DELETE requests."""
+
+    queryset = Shoppinglist.objects.all()
+    serializer_class = ShoppinglistSerializer
