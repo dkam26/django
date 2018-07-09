@@ -1,8 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics
 from .serializers import ShoppinglistSerializer
-from .models import Shoppinglist, User
-
+from .models import Shoppinglist
 
 class CreateView(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
