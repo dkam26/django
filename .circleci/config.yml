@@ -67,4 +67,6 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+      - after_success:
+        - coveralls
       
