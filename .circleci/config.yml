@@ -64,6 +64,9 @@ jobs:
             cd djangorest/
             coverage run --source=api  manage.py test
             coverage report -m
+      - run : 
+        command: |
+          coveralls
       - store_artifacts:
           path: test-reports
           destination: test-reports
