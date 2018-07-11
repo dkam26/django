@@ -20,6 +20,7 @@ before_script:
 script: 
   - cd djangorest/
   - coverage run manage.py test
+  - coverage report -m
 
 after_success:
   - coveralls
