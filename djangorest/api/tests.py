@@ -16,7 +16,7 @@ class ModelTestCase(TestCase):
             reverse('createuser'),
             self.user,
             format="json")
-        self.shoppinglist_data = {'name': 'Trousers'}
+        self.shoppinglist_data = {'name': 'Trousers','owner':self.user_response.data['id']}
         self.response = self.client.post(
             reverse('create'),
             self.shoppinglist_data,
@@ -43,7 +43,7 @@ class ModelTestCase(TestCase):
     def test_api_can_update_shoppinglist(self):
         """Test the api can update a given shoppinglist."""
         shoppinglist = Shoppinglist.objects.get()
-        change_shoppinglist = {'name': 'Something new'}
+        change_shoppinglist = {'name': 'Something new','owner':self.user_response.data['id'] }
         res = self.client.put(
             reverse('details', kwargs={'pk': shoppinglist.id}),
             change_shoppinglist, format='json'

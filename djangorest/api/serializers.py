@@ -8,7 +8,7 @@ class ShoppinglistSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Shoppinglist
-        fields = ('id', 'name', 'date_created')
+        fields = ('id', 'name', 'date_created','owner')
 
 
 class UserSerializer(serializers.ModelSerializer):
