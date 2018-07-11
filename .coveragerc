@@ -1,5 +1,5 @@
 [report]
 omit =
-  */venv/*
   */.circleci/*
   */djangorest/djangorest/*
+  *djangorest/api/tests.py/*

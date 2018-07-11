@@ -62,7 +62,9 @@ jobs:
           command: |
             . venv/bin/activate
             cd djangorest/
-            coverage run manage.py test
+            coverage run --source=api  manage.py test
+            coverage report -m
+
             coveralls
       - store_artifacts:
           path: test-reports
