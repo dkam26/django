@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Shoppinglist
+from .models import Shoppinglist, User
 
 
 class ShoppinglistSerializer(serializers.ModelSerializer):
@@ -9,3 +9,10 @@ class ShoppinglistSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = Shoppinglist
         fields = ('id', 'name', 'date_created')
+
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'user', 'password', 'email')

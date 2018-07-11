@@ -11,6 +11,11 @@ class ModelTestCase(TestCase):
     def setUp(self):
         """Define the test client and other test variables."""
         self.client = APIClient()
+        self.user = {'user': 'deo','password':'1234','email':'deo@gmail.com'}
+        self.user_response = self.client.post(
+            reverse('createuser'),
+            self.user,
+            format="json")
         self.shoppinglist_data = {'name': 'Trousers'}
         self.response = self.client.post(
             reverse('create'),
@@ -18,8 +23,13 @@ class ModelTestCase(TestCase):
             format="json")
 
     def test_model_can_create_a_shoppinglist(self):
-        """Test the bucketlist model can create a shoppinglist."""
+        """Test the shoppinglist model can create a shoppinglist."""
+       
         self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
+
+    def test_model_can_create_a_user(self):
+        """Test the User model can create a user."""
+        self.assertEqual(self.user_response.status_code, status.HTTP_201_CREATED)
 
     def test_api_can_get_a_shoppinglist(self):
         """Test the api can get a given shoppinglist."""
