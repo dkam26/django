@@ -1,5 +1,6 @@
 [report]
 omit =
+  */site-packages/*
   */.circleci/*
   */djangorest/djangorest/*
   */djangorest/api/tests.py/*
