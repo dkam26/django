@@ -3,10 +3,16 @@ from rest_framework import status
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from .models import User, Shoppinglist
+from .apps import ApiConfig
 
+
+class AppTestCase(TestCase):
+
+    def test_if_app_is_created(self):
+        self.assertTrue(ApiConfig)
 
 class ModelTestCase(TestCase):
-    """This class defines the test suite for the shoppinglist model."""
+    """This class defines the test suite for the shoppinglist and user model."""
 
     def setUp(self):
         """Define the test client and other test variables."""
