@@ -6,4 +6,4 @@ omit =
   */djangorest/api/tests.py/*
   */djangorest/api/serializers.py/*
   */djangorest/api/apps.py/*
-  */travis/virtualenv/python3.6.3/*
+  */home/*
