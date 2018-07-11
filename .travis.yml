@@ -19,7 +19,7 @@ before_script:
 #To run tests  
 script: 
   - cd djangorest/
-  - coverage run manage.py test
+  - coverage run --source=api  manage.py test
   - coverage report -m
 
 after_success:
