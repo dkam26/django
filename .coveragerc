@@ -3,5 +3,5 @@ omit =
   */.circleci/*
   */djangorest/djangorest/*
   */djangorest/api/tests.py/*
-  *djangorest/api/serializers.py/*
+  */djangorest/api/serializers.py/*
   */djangorest/api/apps.py/*
