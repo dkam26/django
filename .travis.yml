@@ -12,14 +12,14 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - createuser kamaradeo --createdb
-  - createdb mytestdatabase -U kamaradeo
+  - createuser deokamara --createdb
+  - createdb mytestdatabase -U deokamara
   
 
 #To run tests  
 script: 
-  - cd djangorest/
-  - coverage run --source=api  manage.py test
+  - cd shoppinglistapp/
+  - coverage run --source=lists  manage.py test
   - coverage report -m
 
 after_success:
