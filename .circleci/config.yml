@@ -23,7 +23,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/djangorest
+    working_directory: ~/shoppinglistapp
     general:
       branches:
         only:
@@ -61,10 +61,9 @@ jobs:
                 only: develop
           command: |
             . venv/bin/activate
-            cd djangorest/
-            coverage run --source=api  manage.py test
+            cd shoppinglistapp/
+            coverage run --source=lists  manage.py test
             coverage report -m
-
             coveralls
       - store_artifacts:
           path: test-reports
