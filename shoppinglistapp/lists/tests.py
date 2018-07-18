@@ -3,7 +3,6 @@ from rest_framework import status
 from django.urls import reverse
 from django.test import TestCase
 from .models import  Shoppinglist
-from django.contrib.auth.models import User
 
 
 
@@ -13,9 +12,7 @@ class ModelTestCase(TestCase):
     def setUp(self):
         """Define the test client and other test variables."""
         self.client = APIClient()
-        self.user = User.objects.create(username="nerd")
-        self.client.force_authenticate(user=self.user)
-        self.shoppinglist_data = {'name': 'Trousers','owner':self.user.id}
+        self.shoppinglist_data = {'name': 'Trousers'}
         self.response = self.client.post(
             reverse('create'),
             self.shoppinglist_data,
@@ -39,7 +36,7 @@ class ModelTestCase(TestCase):
     def test_api_can_update_shoppinglist(self):
         """Test the api can update a given shoppinglist."""
         shoppinglist = Shoppinglist.objects.get()
-        change_shoppinglist = {'name': 'Something new','owner':self.user.id }
+        change_shoppinglist = {'name': 'Something new'}
         res = self.client.put(
             reverse('details', kwargs={'pk': shoppinglist.id}),
             change_shoppinglist, format='json'

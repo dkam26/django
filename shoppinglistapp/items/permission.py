@@ -1,5 +1,5 @@
 # from rest_framework.permissions import BasePermission
-# from .models import Shoppinglist
+# from lists.models import Shoppinglist
 
 # class IsOwner(BasePermission):
 #     """Custom permission class to allow only shoppinglist owners to edit them."""
